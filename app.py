@@ -1,13 +1,10 @@
-from ast import mod
-
 import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
 
 
-path = '/model/svm_diabetes_model.pkl'    
-model = joblib.load(path)
+model = joblib.load("svm_diabetes_model.pkl") 
 
 st.title("🩺 Diabetes Prediction System")
 st.write("Enter patient metrics below to predict diabetes risk using our SVM model.")
