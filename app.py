@@ -9,7 +9,6 @@ model = joblib.load("svm_diabetes_model.pkl")
 st.title("🩺 Diabetes Prediction System")
 st.write("Enter patient metrics below to predict diabetes risk using our SVM model.")
 
-# Create a form for user inputs (matching the 21 features)
 with st.form("patient_data"):
     col1, col2 = st.columns(2)
     
@@ -25,13 +24,10 @@ with st.form("patient_data"):
         heart_disease = st.selectbox("Heart Disease/Attack", [0, 1])
         gen_hlth = st.slider("General Health (1-Excellent to 5-Poor)", 1, 5, 3)
 
-    # Note: For a real deployment, you would include inputs for all 21 features here.
-    # We are mocking the remaining features as baseline 0s or means for this demo snippet.
+
     submit_button = st.form_submit_button(label="Predict Risk")
 
 if submit_button:
-    # Construct an array of 21 features (Must match the exact order of your training dataset)
-    # Example placeholder array:
     input_data = np.array([[high_bp, high_chol, 1, bmi, smoker, stroke, heart_disease, 
                             1, 1, 1, 0, 1, 0, gen_hlth, 0, 0, 0, 1, age, 4, 5]])
     
